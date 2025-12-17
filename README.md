@@ -1,5 +1,5 @@
 
-![Alt text](/Bildschirmfoto 2025-12-17 um 09.21.48.png)
+![n8n_Workflow](./screen.png)
 
 ## How to Run
 
