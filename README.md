@@ -1,3 +1,37 @@
+
+## How to Run
+
+```bash
+docker build -t mcp-server .
+
+docker run -p 3000:3000 mcp-server
+```
+
+create a Port 3000, make it Public and assign the URL to the n8n
+
+# to use it with Claude Desktop
+
+To use the Dockerized server with Claude Desktop, update your config file (located at ~/Library/Application Support/Claude/claude_desktop_config.json on macOS).
+
+Instead of running node directly, you will tell Claude to run the docker command. The -i flag is crucial as it keeps the input stream open for MCP communication.
+
+```bash
+{
+  "mcpServers": {
+    "rechtsinformationen-bund-de": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "rechtsinformationen-mcp"
+      ]
+    }
+  }
+}
+```
+
+
 # Rechtsinformationen Bund DE MCP Server
 
 An MCP (Model Context Protocol) server that provides access to the official German Federal Legal Information Portal (rechtsinformationen.bund.de). **Any AI agent can use this server for German legal questions** to provide authoritative, fact-based answers with proper legal citations from official sources.

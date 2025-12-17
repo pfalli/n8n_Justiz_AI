@@ -53,8 +53,8 @@ interface SearchResult {
   '@type': 'SearchResult';
 }
 
-class RechtsinformationenBundDeMCPServer {
-  private server: Server;
+export class RechtsinformationenBundDeMCPServer {
+  public server: Server;
 
   constructor() {
     this.server = new Server(
@@ -1489,7 +1489,7 @@ ${JSON.stringify(data, null, 2)}`;
       output += `💡 **Concept Corrections Applied:**\n${explanations.map(exp => `• ${exp}`).join('\n')}\n\n`;
     }
 
-    output += results.map((result, index) => {
+    return results.map((result, index) => {
       const doc = result.item.originalResult ? result.item.originalResult.item : result.item;
       const rawScore = result.score || 0;
 
@@ -1526,8 +1526,6 @@ ${JSON.stringify(data, null, 2)}`;
    ${uniqueParas.length > 0 ? `⚖️ **Key Paragraphs:** ${uniqueParas.join(', ')}` : ''}
    📄 **Summary:** ${summary || 'No summary available'}`;
     }).join('\n\n');
-
-    return output;
   }
 
   private formatSemanticResults(results: any[]): string {
@@ -1791,5 +1789,7 @@ ${JSON.stringify(data, null, 2)}`;
   }
 }
 
-const server = new RechtsinformationenBundDeMCPServer();
-server.run().catch(console.error);
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const server = new RechtsinformationenBundDeMCPServer();
+  server.run().catch(console.error);
+}

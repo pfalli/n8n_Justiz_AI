@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
     "dev": "tsx src/index.ts",
     "test": "node tests/test-golden.js",
     "test:generic": "node tests/test-generic-search.js",
@@ -24,17 +25,31 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "axios": "^1.7.0",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
     "fuse.js": "^7.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
-    "tsx": "^4.0.0",
-    "typescript": "^5.0.0",
     "jest": "^29.0.0",
-    "@types/jest": "^29.0.0"
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   },
-  "keywords": ["mcp", "rechtsinformationen", "bund", "german-law", "legal", "search", "semantic", "claude", "desktop"],
+  "keywords": [
+    "mcp",
+    "rechtsinformationen",
+    "bund",
+    "german-law",
+    "legal",
+    "search",
+    "semantic",
+    "claude",
+    "desktop"
+  ],
   "author": "",
   "license": "MIT"
 }
