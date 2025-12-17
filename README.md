@@ -1,4 +1,6 @@
 
+![Alt text](/Bildschirmfoto 2025-12-17 um 09.21.48.png)
+
 ## How to Run
 
 ```bash
